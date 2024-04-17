@@ -22,8 +22,10 @@ export default function FormArea({ creatNote }) {
     }
   }
   const [note, setNote] = useState({
+    todoId: crypto.randomUUID(),
     title: "",
     content: "",
+    isCompleted: false
   });
 
   function handleChange(e) {
@@ -35,10 +37,13 @@ export default function FormArea({ creatNote }) {
     if (!note.title || !note.content) {
       return
     }
-    creatNote(note)
+
+    creatNote(note);
     setNote({
+      todoId: crypto.randomUUID(),
       title: "",
       content: "",
+      isCompleted: false
     })
   }
   return (
